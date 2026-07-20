@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Page Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 50px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #page1 { background-color: #f8d7da; }
+        #page2 { background-color: #d1ecf1; }
+        #page3 { background-color: #d4edda; }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1 -->
+    <div id="page1" class="page active">
+        <h1>Page 1</h1>
+        <p>Welcome to Page 1</p>
+
+        <button onclick="showPage('page2')">Go to Page 2</button>
+        <button onclick="showPage('page3')">Go to Page 3</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="page">
+        <h1>Page 2</h1>
+        <p>Welcome to Page 2</p>
+
+        <button onclick="showPage('page1')">Go to Page 1</button>
+        <button onclick="showPage('page3')">Go to Page 3</button>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page3" class="page">
+        <h1>Page 3</h1>
+        <p>Welcome to Page 3</p>
+
+        <button onclick="showPage('page1')">Go to Page 1</button>
+        <button onclick="showPage('page2')">Go to Page 2</button>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
